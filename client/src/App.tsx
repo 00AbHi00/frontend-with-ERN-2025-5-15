@@ -1,9 +1,15 @@
-import './App.css'
+import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage/home";
+import UserDetail from "./pages/UserDetailsPage/userDetail";
 
 export default function App() {
   return (
-      <div className='bg-red-400 p-4'>
-        Home Page
-      </div>
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/user/:id" element={<UserDetail />} />
+      </Routes>
+    </Router>
+  );
 }
