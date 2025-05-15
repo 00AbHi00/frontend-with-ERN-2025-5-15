@@ -12,3 +12,5 @@ A view to add, edit, view, and delete users.
 >> Proper routing and form validation.
 - Zod will be used for form validation and express for routing
 
+I decided to split the code into client and server for easier mangement and flow of data
+
