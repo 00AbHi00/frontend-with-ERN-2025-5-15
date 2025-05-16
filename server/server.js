@@ -95,19 +95,36 @@ app.get("/api/users/:id", async (req, res) => {
 
 
 
-// Update an existing user by userId
 app.put("/api/users/:id", async (req, res) => {
   const users = await readCSV();
-  const userId = req.params.id;
-  const updatedData = req.body;
+  const userId = req.params.id; // keep it string to match CSV
+  const { firstName, lastName, userName, userType } = req.body;
 
-  const index = users.findIndex((u) => u.userId == userId);
-  if (index === -1) return res.status(404).json({ error: "User not found" });
+  const isUserNameTaken = users.find(
+    (u) => u.userName === userName && u.userId !== userId
+  );
 
-  users[index] = { ...users[index], ...updatedData };
+  if (isUserNameTaken) {
+    return res.status(409).json({ error: "Username not available", userId });
+  }
+
+  const index = users.findIndex((u) => u.userId === userId);
+  if (index === -1) {
+    return res.status(404).json({ error: "User not found" });
+  }
+
+  users[index] = {
+    ...users[index],
+    firstName,
+    lastName,
+    userName,
+    userType,
+  };
+
   await writeCSV(users);
-  res.json({ message: "User updated", user: users[index] });
+  res.json({ message: "User updated successfully", user: users[index] });
 });
+
 
 // Delete a user by userId
 app.delete("/api/users/:id", async (req, res) => {

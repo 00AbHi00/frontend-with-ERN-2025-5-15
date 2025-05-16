@@ -10,8 +10,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/user/:id" element={<UserDetail />} />
-        <Route path="/edit/user/:id" element={<EditUsersPage />} />
-      
+        <Route path="/edit/user/:id" element={<EditUsersPage />} /> 
       </Routes>
     </Router>
   );

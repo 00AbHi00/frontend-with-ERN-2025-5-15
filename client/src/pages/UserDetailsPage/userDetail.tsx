@@ -36,7 +36,7 @@ if (!user) {
 }
 
 return (
-  <div className="p-4">
+  <div className="outline rounded-x l p-5 flex flex-col gap-3 items-baseline">
     <h1 className="text-xl font-bold">{user.firstName} {user.lastName}</h1>
     <p>Username: {user.userName}</p>
     <p>User Type: {user.userType}</p>

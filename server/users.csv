@@ -1,6 +1,5 @@
 userId,firstName,lastName,userName,userType
 5,Emily,Johnson,emily_j,system
 6,Sunita,Rai,sunita_rai,user
-8,Aarav,Sharma,aarav_s,user
-9,Lisa,White,lisa_white,system
-10,Danish,Thapa,manish_t,user
+9,Lisa,White,lisa_white,admin
+10,Danish,Thapa,manish_t,system
