@@ -1,14 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Button } from "antd";
+import { type User } from "../../schemas/userSchema";
 
-type User = {
-  userId: number;
-  firstName: string;
-  lastName: string;
-  userName: string;
-  userType: string;
-};
 
 export default function EditUser() {
   const { id } = useParams<{ id: string }>();
@@ -49,12 +44,22 @@ export default function EditUser() {
       alert("Failed to update user.");
     }
   };
-
+  const NavigatetoHome=()=>
+  {
+    navigate('/')
+  }
   if (loading) return <div>Loading...</div>;
-  if (!user) return <div>User not found.</div>;
-
+  if (!user) {
+    return (
+    <div className="flex flex-col">
+        User not found
+        <Button onClick={NavigatetoHome}>
+            Goto Home
+        </Button>
+    </div>);
+  }
   return (
-    <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto bg-white rounded shadow">
+    <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto outline bg-slate-100/20 shadow-gray-300 shadow-md rounded ">
       <h2 className="text-xl font-bold mb-4">Edit User</h2>
 
       <label className="block mb-2">First Name:</label>

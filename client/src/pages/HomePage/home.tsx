@@ -2,14 +2,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { Button, Space, Table, type TableColumnsType } from "antd";
 import { Link } from "react-router-dom";
+import { type User } from "../../schemas/userSchema";
 
-type User = {
-  userId: number;
-  firstName: string;
-  lastName: string;
-  userName: string;
-  userType: string;
-};
 
 const columns: TableColumnsType<User> = [
   {
@@ -48,6 +42,7 @@ const columns: TableColumnsType<User> = [
     filters: [
       { text: "Admin", value: "admin" },
       { text: "System", value: "system" },
+      { text: "User", value: "user" },
     ],
     onFilter: (value, record) => record.userType === value,
     sorter: (a, b) => a.userType.localeCompare(b.userType),
@@ -58,7 +53,9 @@ const columns: TableColumnsType<User> = [
     render: (_, record) => (
       <Space>
         <Button type="primary" onClick  ={() => handleDelete(record.userId)}> Delete </Button>
-        <Button onClick={() => handleEdit(record)}>Edit</Button>
+         <Link to={`/edit/user/${record.userId}`}>
+          <Button type="dashed">Edit</Button>
+        </Link>
         <Link to={`/user/${record.userId}`}>
           <Button type="dashed">Visit</Button>
         </Link>
@@ -88,9 +85,7 @@ const handleDelete = async (userId: number) => {
   }
 };
 
-const handleEdit = (user: User) => {
-  console.log("Edit user", user);
-};
+
 
 export default function HomePage() {
   const [usersList, setUserList] = useState<User[]>([]);

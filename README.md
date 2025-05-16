@@ -1,7 +1,27 @@
 ## Creating a Frontend User List Management App
 The app will have following features: 
-> ## Implementation Details <br/>
+## Implementation Details <br/>
+> Seperation of concerns with Seperate Client and Server
+>> Client:
+ >>> Functionality
+    - * Routing *   Different pages are inside pages/ folder
+    - * Schema * Schema is defined under schemas/ folder
 
+ >>> Libraries   
+    -React Router Dom (Defining routes in App.js)
+    - Tailwind (Fine tuning the designs)
+    - Typescript (Defining Schemas)
+    - Ant Design (Filtering tables, sorting data in tables, )
+    - Axios Calling Data from client side (REST api)
+    - Zod (Form validation)
+
+>> Server:
+    >>> Libraries 
+    - express 
+    - nodemon
+    - cors
+    - fastcsv
+    - fs(node js)
 >> A table displaying all users (with color-coded user types and action buttons).
 - Tailwind and ANT Design will be implemented for the design components
 

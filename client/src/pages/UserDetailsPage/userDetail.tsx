@@ -1,14 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-type User = {
-  userId: number;
-  firstName: string;
-  lastName: string;
-  userName: string;
-  userType: string;
-};
+import { type User } from "../../schemas/userSchema";
 
 export default function UserDetail() {
   const { id } = useParams(); // dynamic user ID from URL
