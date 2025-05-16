@@ -105,6 +105,9 @@ export default function HomePage() {
 
   return (
     <>
+      <Link to='/create/user' className="block bg-green-900 p-3 m-3 text-gray-100">
+        Create New user ➕
+      </Link>
       <Table
         className="max-w-screen p-0 m-0"
         rowClassName={(record) => (record.userType === "admin" ? "bg-yellow-200" : "")}

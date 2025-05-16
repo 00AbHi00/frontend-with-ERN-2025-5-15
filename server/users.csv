@@ -3,3 +3,5 @@ userId,firstName,lastName,userName,userType
 6,Sunita,Rai,sunita_rai,user
 9,Lisa,White,lisa_white,admin
 10,Danish,Thapa,manish_t,system
+0,XYZ,ABC,MNP,user
+11,Lisa,White,lisa_white-1,user

@@ -64,17 +64,30 @@ app.get("/api/users", async (req, res) => {
 // Add a new user - data sent as JSON in request body
 app.post("/api/users", async (req, res) => {
   const users = await readCSV();
-  const newUser = req.body;
+  const { firstName, lastName, userName, userType } = req.body;
 
-  // Ensure userId is unique
-  if (users.some((u) => u.userId == newUser.userId)) {
-    return res.status(400).json({ error: "User ID already exists" });
+  // Check if userName is already taken
+  if (users.some((u) => u.userName === userName)) {
+    return res.status(400).json({ error: "Username already exists" });
   }
+
+  // Generate new userId (max + 1)
+  const maxId = users.length > 0 ? Math.max(...users.map(u => Number(u.userId))) : 0;
+  const newUserId = maxId + 1;
+
+  const newUser = {
+    userId: newUserId,
+    firstName,
+    lastName,
+    userName,
+    userType,
+  };
 
   users.push(newUser);
   await writeCSV(users);
   res.json({ message: "User added", user: newUser });
 });
+
 
 app.get("/api/users/:id", async (req, res) => {
   try {

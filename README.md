@@ -4,24 +4,7 @@ The app will have following features:
 > Seperation of concerns with Seperate Client and Server
 >> Client:
  >>> Functionality
-    - ** Routconsole.log("Client and Server are separated for easier management and flow of data.");
-console.log("Features:");
-console.log("  - Routing: Different pages are inside pages/ folder");
-console.log("  - Schema: Schema is defined under schemas/ folder");
-console.log("Libraries Used:");
-console.log("  Client:");
-console.log("    - React Router Dom (Defining routes in App.js)");
-console.log("    - Tailwind (Fine tuning the designs)");
-console.log("    - Typescript (Defining Schemas)");
-console.log("    - Ant Design (Filtering tables, sorting data in tables, )");
-console.log("    - Axios Calling Data from client side (REST api)");
-console.log("    - Zod (Form validation)");
-console.log("  Server:");
-console.log("    - express");
-console.log("    - nodemon");
-console.log("    - cors");
-console.log("    - fastcsv");
-console.log("    - fs(node js)");ing **   Different pages are inside pages/ folder
+    - ** Routing **   Different pages are inside pages/ folder
     - ** Schema ** Schema is defined under schemas/ folder
 
  >>> Libraries   
